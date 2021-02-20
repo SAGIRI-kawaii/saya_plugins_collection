@@ -21,3 +21,5 @@
 - [Repeater](modules/Repeater.py) 一个复读插件
 - [PetPet](modules/PetPet) 生成摸头gif
 - [PixivImageSearcher](modules/PixivImageSearcher) 一个链接saucenao的以图搜图插件
+- [Text2QrcodeGenerator](modules/Text2QrcodeGenerator.py) 一个可以将文字转为二维码的插件
+- [GroupWordCloudGenerator](modules/GroupWordCloudGenerator) 一个可以记录聊天记录并生成个人/群组词云的插件

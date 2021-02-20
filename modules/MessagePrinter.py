@@ -15,6 +15,7 @@ __usage__ = ""
 saya = Saya.current()
 channel = Channel.current()
 
+
 @channel.use(ListenerSchema(
     listening_events=[SayaModuleInstalled]
 ))

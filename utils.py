@@ -1,11 +1,14 @@
 import json
 import math
+import os
 from PIL import Image as IMG
 from PIL import ImageDraw, ImageFont
+
 from graia.application.message.elements.internal import MessageChain
 from graia.application.message.elements.internal import Image_LocalFile
 from graia.application.message.elements.internal import Plain
 from graia.application.message.elements.internal import Image
+from graia.application.message.elements import Element
 
 
 def load_config(config_file: str = "config.json") -> dict:
@@ -63,6 +66,8 @@ async def messagechain_to_img(
     Returns:
         MessageChain （内含图片Image类）
     """
+    if not os.path.exists("temp"):
+        os.mkdir("temp")
     font = ImageFont.truetype(font_path, font_size, encoding="utf-8")
     message = message.asMerged()
     elements = message.__root__
@@ -125,3 +130,9 @@ async def messagechain_to_img(
     return MessageChain.create([
         Image.fromLocalFile(save_path)
     ])
+
+
+class MessageChainTools:
+    @staticmethod
+    def element_only(message: MessageChain, element_class: Element) -> bool:
+        return all(type(element) is element_class for element in message.__root__)

@@ -21,7 +21,7 @@ saya = Saya.current()
 channel = Channel.current()
 
 
-@channel.use(ListenerSchema(listening_events=[GroupMessage], inline_dispatchers=[Kanata([FullMatch('微博')])]))
+@channel.use(ListenerSchema(listening_events=[GroupMessage], inline_dispatchers=[Kanata([FullMatch('')])]))
 async def group_message_listener(app: GraiaMiraiApplication, group: Group):
     await app.sendGroupMessage(
         group,

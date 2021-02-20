@@ -1,0 +1,6 @@
+numpy
+pkuseg
+matplotlib
+wordcloud
+Pillow
+python_dateutil
