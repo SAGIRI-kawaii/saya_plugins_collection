@@ -11,41 +11,34 @@ from graia.application.event.messages import *
 from graia.application.event.mirai import *
 
 # 插件信息
-__name__ = "WeiboHotSearch"
-__description__ = "获取当前微博热搜"
+__name__ = "ZhihuHotSearch"
+__description__ = "获取当前知乎热搜"
 __author__ = "SAGIRI-kawaii"
-__usage__ = "在群内发送 微博 即可"
+__usage__ = "在群内发送 知乎 即可"
 
 saya = Saya.current()
 channel = Channel.current()
 
 
-@channel.use(ListenerSchema(listening_events=[GroupMessage], inline_dispatchers=[Kanata([FullMatch('微博')])]))
+@channel.use(ListenerSchema(listening_events=[GroupMessage], inline_dispatchers=[Kanata([FullMatch('知乎')])]))
 async def group_message_listener(app: GraiaMiraiApplication, group: Group):
     await app.sendGroupMessage(
         group,
-        await get_weibo_hot()
+        await get_zhihu_hot()
     )
 
 
-async def get_weibo_hot(display: str = "img") -> MessageChain:
-    url = "http://api.weibo.cn/2/guest/search/hot/word"
+async def get_zhihu_hot() -> MessageChain:
+    zhihu_hot_url = "https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=50&desktop=true"
     async with aiohttp.ClientSession() as session:
-        async with session.get(url=url) as resp:
+        async with session.get(url=zhihu_hot_url) as resp:
             data = await resp.json()
+    print(data)
     data = data["data"]
-    text_list = ["微博实时热榜:"]
+    text_list = ["知乎实时热榜:"]
     index = 0
     for i in data:
         index += 1
-        text_list.append("\n%d. %s" % (index, i["word"].strip()))
+        text_list.append("\n%d. %s" % (index, i["target"]["title"]))
     text = "".join(text_list).replace("#", "")
-    msg = MessageChain.create([
-        Plain(text=text)
-    ])
-    if display == "img":
-        return await messagechain_to_img(msg)
-    elif display == "text":
-        return msg
-    else:
-        raise ValueError("Invalid display value!")
+    return await messagechain_to_img(MessageChain.create([Plain(text=text)]))
