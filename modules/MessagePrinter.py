@@ -23,12 +23,6 @@ async def group_message_listener(
     sender: Member,
     group: Group
 ):
-    message_serialization = message.asSerializationString()
-    message_serialization = message_serialization.replace(
-        "[mirai:source:" + re.findall(r'\[mirai:source:(.*?)]', message_serialization, re.S)[0] + "]",
-        ""
-    )
-    # print(message_serialization)
     print(f"接收到来自群组 <{group.name} ({group.id})> 中成员 <{sender.name} ({sender.id})> 的消息：{message.asDisplay()}")
 
 
