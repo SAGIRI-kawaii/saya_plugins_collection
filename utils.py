@@ -117,6 +117,8 @@ async def messagechain_to_img(
                     present_y += (font_size + spacing)
                     present_x = padding_x
                     continue
+                if char == "\r":
+                    continue
                 if present_x + font.getsize(char)[0] > text_width:
                     present_y += (font_size + spacing)
                     present_x = padding_x
