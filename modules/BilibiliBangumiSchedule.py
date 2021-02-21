@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import aiohttp
 import datetime
+
 from graia.application.message.elements.internal import Plain
 from graia.application import GraiaMiraiApplication
 from graia.saya import Saya, Channel
@@ -27,10 +28,8 @@ async def bilibili_bangumi_schedule(
     message: MessageChain,
     group: Group
 ):
-    if days := message.asDisplay()[0].isdigit():
-        await app.sendGroupMessage(group, await formatted_output_bangumi(int(days)))
-    else:
-        await app.sendGroupMessage(group, MessageChain.create([Plain(text="仅支持1-7日内新番时间表！")]))
+    days = message.asDisplay()[0]
+    await app.sendGroupMessage(group, await formatted_output_bangumi(int(days)))
 
 
 async def get_new_bangumi_json() -> dict:

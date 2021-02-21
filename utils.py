@@ -31,7 +31,7 @@ async def get_final_text_lines(text: str, text_width: int, font: ImageFont.FreeT
             line_count += 1
             continue
         line_count += int(math.ceil(float(font.getsize(line)[0]) / float(text_width)))
-    print("lines: ", line_count + 1)
+    # print("lines: ", line_count + 1)
     return line_count + 1
 
 
@@ -74,7 +74,7 @@ async def messagechain_to_img(
 
     plains = message.get(Plain)
     text_gather = "\n".join([plain.text for plain in plains])
-    print(max(font.getsize(text)[0] for text in text_gather.split("\n")) + 2 * padding_x)
+    # print(max(font.getsize(text)[0] for text in text_gather.split("\n")) + 2 * padding_x)
     final_width = min(max(font.getsize(text)[0] for text in text_gather.split("\n")) + 2 * padding_x, max_width)
     text_width = final_width - 2 * padding_x
     text_height = (font_size + spacing) * await get_final_text_lines(text_gather, text_width, font)
@@ -106,12 +106,12 @@ async def messagechain_to_img(
     image_index = 0
     for element in elements:
         if isinstance(element, Image_LocalFile):
-            print(f"adding img {image_index}")
+            # print(f"adding img {image_index}")
             picture.paste(temp_img_list[image_index], (present_x, present_y))
             present_y += (spacing + temp_img_list[image_index].size[1])
             image_index += 1
         elif isinstance(element, Plain):
-            print(f"adding text '{element.text}'")
+            # print(f"adding text '{element.text}'")
             for char in element.text:
                 if char == "\n":
                     present_y += (font_size + spacing)
