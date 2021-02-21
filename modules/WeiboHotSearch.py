@@ -9,6 +9,7 @@ from graia.saya import Saya, Channel
 from graia.saya.builtins.broadcast.schema import ListenerSchema
 from graia.application.event.messages import *
 from graia.application.event.mirai import *
+from graia.application.exceptions import AccountMuted
 
 # 插件信息
 __name__ = "WeiboHotSearch"
@@ -22,10 +23,13 @@ channel = Channel.current()
 
 @channel.use(ListenerSchema(listening_events=[GroupMessage], inline_dispatchers=[Kanata([FullMatch('微博')])]))
 async def group_message_listener(app: GraiaMiraiApplication, group: Group):
-    await app.sendGroupMessage(
-        group,
-        await get_weibo_hot()
-    )
+    try:
+        await app.sendGroupMessage(
+            group,
+            await get_weibo_hot()
+        )
+    except AccountMuted:
+        pass
 
 
 async def get_weibo_hot(display: str = "img") -> MessageChain:

@@ -15,6 +15,7 @@ from graia.application.message.elements.internal import Image
 from graia.application.event.messages import GroupMessage
 from graia.application import GraiaMiraiApplication
 from graia.application.group import Group, Member
+from graia.application.exceptions import AccountMuted
 
 from .Sqlite3Manager import execute_sql
 
@@ -45,14 +46,17 @@ async def group_wordcloud_generator(app: GraiaMiraiApplication, message: Message
     member_id = member.id
     group_id = group.id
     await write_chat_record(seg, group_id, member_id, message_text)
-    if message_text == "我的月内总结":
-        await app.sendGroupMessage(group, await get_review(group_id, member_id, "month", "member"))
-    elif message_text == "我的年内总结":
-        await app.sendGroupMessage(group, await get_review(group_id, member_id, "year", "member"))
-    elif message_text == "本群月内总结":
-        await app.sendGroupMessage(group, await get_review(group_id, member_id, "month", "group"))
-    elif message_text == "本群年内总结":
-        await app.sendGroupMessage(group, await get_review(group_id, member_id, "year", "group"))
+    try:
+        if message_text == "我的月内总结":
+            await app.sendGroupMessage(group, await get_review(group_id, member_id, "month", "member"))
+        elif message_text == "我的年内总结":
+            await app.sendGroupMessage(group, await get_review(group_id, member_id, "year", "member"))
+        elif message_text == "本群月内总结":
+            await app.sendGroupMessage(group, await get_review(group_id, member_id, "month", "group"))
+        elif message_text == "本群年内总结":
+            await app.sendGroupMessage(group, await get_review(group_id, member_id, "year", "group"))
+    except AccountMuted:
+        pass
 
 
 async def count_words(sp, n):

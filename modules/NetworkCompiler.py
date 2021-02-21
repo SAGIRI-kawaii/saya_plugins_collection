@@ -8,6 +8,7 @@ from graia.saya.builtins.broadcast.schema import ListenerSchema
 from graia.application.event.messages import *
 from graia.application.message.parser.kanata import Kanata
 from graia.application.message.parser.signature import RegexMatch
+from graia.application.exceptions import AccountMuted
 
 # 插件信息
 __name__ = "NetworkCompiler"
@@ -30,10 +31,13 @@ async def network_compiler(
     code = message_text[8 + len(language):]
     result = await network_compile(language, code)
     print(result)
-    if isinstance(result, str):
-        await app.sendGroupMessage(group, MessageChain.create([Plain(text=result)]))
-    else:
-        await app.sendGroupMessage(group, MessageChain.create([Plain(text=result["output"] if result["output"] else result["errors"])]))
+    try:
+        if isinstance(result, str):
+            await app.sendGroupMessage(group, MessageChain.create([Plain(text=result)]))
+        else:
+            await app.sendGroupMessage(group, MessageChain.create([Plain(text=result["output"] if result["output"] else result["errors"])]))
+    except AccountMuted:
+        pass
 
 
 legal_language = {

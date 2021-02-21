@@ -15,6 +15,7 @@ from graia.application.event.messages import GroupMessage
 from graia.application.event.messages import Group
 from graia.application.message.parser.kanata import Kanata
 from graia.application.message.parser.signature import RegexMatch
+from graia.application.exceptions import AccountMuted
 
 # 插件信息
 __name__ = "PdfSearcher"
@@ -33,7 +34,10 @@ async def pdf_searcher(
     group: Group
 ):
     keyword = message.asDisplay()[4:]
-    await app.sendGroupMessage(group, await search_pdf(keyword))
+    try:
+        await app.sendGroupMessage(group, await search_pdf(keyword))
+    except AccountMuted:
+        pass
 
 
 async def search_pdf(keyword: str) -> MessageChain:

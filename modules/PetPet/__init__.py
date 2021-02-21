@@ -9,12 +9,11 @@ import os
 from graia.application import GraiaMiraiApplication
 from graia.saya import Saya, Channel
 from graia.saya.builtins.broadcast.schema import ListenerSchema
-from graia.saya.event import SayaModuleInstalled
 from graia.application.event.messages import *
 from graia.application.message.chain import MessageChain
 from graia.application.message.elements.internal import At
 from graia.application.message.elements.internal import Image
-from graia.application.event.messages import Member, Group
+from graia.application.event.messages import Group
 from graia.application.exceptions import AccountMuted
 
 saya = Saya.current()

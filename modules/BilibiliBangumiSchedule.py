@@ -9,6 +9,7 @@ from graia.saya.builtins.broadcast.schema import ListenerSchema
 from graia.application.event.messages import *
 from graia.application.message.parser.kanata import Kanata
 from graia.application.message.parser.signature import RegexMatch
+from graia.application.exceptions import AccountMuted
 
 from utils import messagechain_to_img
 
@@ -29,7 +30,10 @@ async def bilibili_bangumi_schedule(
     group: Group
 ):
     days = message.asDisplay()[0]
-    await app.sendGroupMessage(group, await formatted_output_bangumi(int(days)))
+    try:
+        await app.sendGroupMessage(group, await formatted_output_bangumi(int(days)))
+    except AccountMuted:
+        pass
 
 
 async def get_new_bangumi_json() -> dict:
