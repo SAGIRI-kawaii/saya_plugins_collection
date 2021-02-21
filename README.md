@@ -21,7 +21,7 @@
 - [ZhihuHotSearch](modules/ZhihuHotSearch.py) 获取当前知乎热搜50条 注：本插件依赖于本仓库下 `utils.py` 中的 `messagechain_to_img` 函数
 - [Repeater](modules/Repeater.py) 一个复读插件
 - [PetPet](modules/PetPet) 生成摸头gif
-- [PixivImageSearcher](modules/PixivImageSearcher) 一个链接saucenao的以图搜图插件
+- [PixivImageSearcher](modules/PixivImageSearcher) 一个链接saucenao的以图搜图插件，请自行配置 saucenao cookie
 - [PdfSearcher](modules/PdfSearcher.py) 一个可以搜索pdf的插件
 - [NetworkCompiler](modules/NetworkCompiler.py) 网络编译器（菜鸟教程）
 - [Text2QrcodeGenerator](modules/Text2QrcodeGenerator.py) 一个可以将文字转为二维码的插件
