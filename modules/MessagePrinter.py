@@ -1,6 +1,7 @@
+import re
+
 from graia.saya import Saya, Channel
 from graia.saya.builtins.broadcast.schema import ListenerSchema
-from graia.saya.event import SayaModuleInstalled
 from graia.application.event.messages import *
 from graia.application.event.mirai import *
 
@@ -16,19 +17,18 @@ saya = Saya.current()
 channel = Channel.current()
 
 
-@channel.use(ListenerSchema(
-    listening_events=[SayaModuleInstalled]
-))
-async def module_listener(event: SayaModuleInstalled):
-    print(f"{event.module}::模块加载成功!!!")
-
-
 @channel.use(ListenerSchema(listening_events=[GroupMessage]))
 async def group_message_listener(
     message: MessageChain,
     sender: Member,
     group: Group
 ):
+    message_serialization = message.asSerializationString()
+    message_serialization = message_serialization.replace(
+        "[mirai:source:" + re.findall(r'\[mirai:source:(.*?)]', message_serialization, re.S)[0] + "]",
+        ""
+    )
+    # print(message_serialization)
     print(f"接收到来自群组 <{group.name} ({group.id})> 中成员 <{sender.name} ({sender.id})> 的消息：{message.asDisplay()}")
 
 

@@ -31,7 +31,10 @@ bcc = saya.broadcast
 inc = InterruptControl(bcc)
 
 # 填入你的saucenao_cookie
-saucenao_cookie = ""
+saucenao_cookie = "__cfduid=d7985df61f738fc1c9efa649a9ef6beda1611393506; _ga=GA1.2.422562977.1611393519; " \
+                  "_gid=GA1.2.1444813627.1611393519; " \
+                  "__gads=ID=175ed2c6a7b65db9:T=1611393545:S=ALNI_MZfvF0y0G7A5jx6uLtK0NuFvL3tXg; token=600bea1fded12; " \
+                  "user=46840; auth=5e5f00e71ca8c5860e7ac390cf71c32694c977e9 "
 
 
 @channel.use(ListenerSchema(listening_events=[GroupMessage], inline_dispatchers=[Kanata([FullMatch('搜图')])]))

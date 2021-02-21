@@ -14,7 +14,7 @@ from graia.application.exceptions import AccountMuted
 __name__ = "NetworkCompiler"
 __description__ = "网络编译器（菜鸟教程）"
 __author__ = "SAGIRI-kawaii"
-__usage__ = "在群内发送 super 语言:\n代码 即可"
+__usage__ = "在群内发送 super 语言:\\n代码 即可"
 
 saya = Saya.current()
 channel = Channel.current()
