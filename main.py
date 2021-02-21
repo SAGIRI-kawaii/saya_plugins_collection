@@ -28,16 +28,16 @@ app = GraiaMiraiApplication(
 ignore = ["__init__.py", "__pycache__"]
 
 with saya.module_context():
-    try:
-        for module in os.listdir("modules"):
-            if module in ignore:
-                continue
+    for module in os.listdir("modules"):
+        if module in ignore:
+            continue
+        try:
             if os.path.isdir(module):
                 saya.require(f"modules.{module}")
             else:
                 saya.require(f"modules.{module.split('.')[0]}")
-    except ModuleNotFoundError:
-        pass
+        except ModuleNotFoundError:
+            pass
 
 app.launch_blocking()
 

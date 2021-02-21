@@ -20,7 +20,10 @@ saya = Saya.current()
 channel = Channel.current()
 
 
-@channel.use(ListenerSchema(listening_events=[GroupMessage], inline_dispatchers=[Kanata([RegexMatch('super .*:[\n\r].*')])]))
+@channel.use(ListenerSchema(
+    listening_events=[GroupMessage],
+    inline_dispatchers=[Kanata([RegexMatch('super .*:[\n\r][\s\S]*')])]
+))
 async def network_compiler(
     app: GraiaMiraiApplication,
     message: MessageChain,

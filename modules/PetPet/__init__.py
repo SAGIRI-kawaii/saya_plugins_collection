@@ -16,6 +16,12 @@ from graia.application.message.elements.internal import Image
 from graia.application.event.messages import Group
 from graia.application.exceptions import AccountMuted
 
+# 插件信息
+__name__ = "PetPet"
+__description__ = "生成摸头gif"
+__author__ = "SAGIRI-kawaii"
+__usage__ = "在群内发送 摸@目标 即可"
+
 saya = Saya.current()
 channel = Channel.current()
 
