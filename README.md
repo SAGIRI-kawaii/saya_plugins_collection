@@ -19,6 +19,7 @@
 - [MessagePrinter](modules/MessagePrinter.py) 一个示例插件，输出所有收到的消息
 - [WeiboHotSearch](modules/WeiboHotSearch.py) 获取当前微博热搜50条 注：本插件依赖于本仓库下 `utils.py` 中的 `messagechain_to_img` 函数
 - [ZhihuHotSearch](modules/ZhihuHotSearch.py) 获取当前知乎热搜50条 注：本插件依赖于本仓库下 `utils.py` 中的 `messagechain_to_img` 函数
+- [GithubHotSearch](modules/GithubHotSearch.py) 获取当前github热搜25条 注：本插件依赖于本仓库下 `utils.py` 中的 `messagechain_to_img` 函数
 - [Repeater](modules/Repeater.py) 一个复读插件
 - [PetPet](modules/PetPet) 生成摸头gif
 - [PixivImageSearcher](modules/PixivImageSearcher) 一个链接saucenao的以图搜图插件，请自行配置 saucenao cookie
@@ -28,3 +29,6 @@
 - [GroupWordCloudGenerator](modules/GroupWordCloudGenerator) 一个可以记录聊天记录并生成个人/群组词云的插件
 - [BilibiliBangumiSchedule](modules/BilibiliBangumiSchedule.py) 一个可以获取一周内B站新番时间表的插件
 - [KeywordReply](modules/KeywordReply) 一个支持自定义回复的插件
+- [SteamGameSearcher](modules/SteamGameSearcher) 一个可以搜索steam游戏的插件
+- [BangumiInfoSearcher](modules/BangumiInfoSearcher) 一个可以搜索番剧信息的插件
+- [PornhubStyleLogoGenerator](modules/PornhubStyleLogoGenerator) 一个可以生成 pornhub style logo 的插件
