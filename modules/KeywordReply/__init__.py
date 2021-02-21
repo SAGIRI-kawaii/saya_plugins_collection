@@ -40,8 +40,8 @@ async def keyword_reply(
     if result := await execute_sql(sql):
         replies = []
         for i in range(len(result)):
-            content_type = result[0][1]
-            content = result[0][2]
+            content_type = result[i][1]
+            content = result[i][2]
             replies.append([content_type, content])
         final_reply = random.choice(replies)
 
