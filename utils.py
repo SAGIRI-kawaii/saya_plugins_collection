@@ -1,11 +1,13 @@
 import json
 import math
 import os
+from io import BytesIO
 from PIL import Image as IMG
 from PIL import ImageDraw, ImageFont
 
 from graia.application.message.elements.internal import MessageChain
 from graia.application.message.elements.internal import Image_LocalFile
+from graia.application.message.elements.internal import Image_UnsafeBytes
 from graia.application.message.elements.internal import Plain
 from graia.application.message.elements.internal import Image
 from graia.application.message.elements import Element
@@ -96,6 +98,8 @@ async def messagechain_to_img(
                 else temp_img
             )
             img_height_sum = img_height_sum + temp_img.size[1]
+        # elif isinstance(image, Image_UnsafeBytes):
+        #     temp_img = IMG.open(BytesIO(image.image_bytes))
         else:
             raise Exception("messagechain_to_img：仅支持本地图片即Image_LocalFile类的处理！")
     final_height = 2 * padding_y + text_height + img_height_sum

@@ -32,3 +32,5 @@
 - [SteamGameSearcher](modules/SteamGameSearcher) 一个可以搜索steam游戏的插件
 - [BangumiInfoSearcher](modules/BangumiInfoSearcher) 一个可以搜索番剧信息的插件
 - [PornhubStyleLogoGenerator](modules/PornhubStyleLogoGenerator) 一个可以生成 pornhub style logo 的插件
+- [AbbreviatedPrediction](modules/AbbreviatedPrediction.py) 一个可以获取字母缩写内容的插件
+- [LeetcodeInfoCrawer](modules/LeetcodeInfoCrawer) 一个可以获取leetcode信息的插件
