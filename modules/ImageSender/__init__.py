@@ -68,7 +68,7 @@ async def image_sender(app: GraiaMiraiApplication, message: MessageChain, group:
                     MessageChain.create([Plain(text=f"{function}图功能尚未开启~")])
                 )
         else:
-            sql = f"SELECT real, realHighq FROM setting WHERE groupId='{group.id}'"
+            sql = f"SELECT {function} FROM setting WHERE groupId='{group.id}'"
             if (await execute_sql(sql))[0][0]:
                 await app.sendGroupMessage(group, await get_pic(function))
             else:

@@ -125,16 +125,16 @@ async def get_pic(image_type: str) -> MessageChain:
         return pic_path
 
     switch = {
-        "setu": color(),
-        "setu18": color18(),
-        "real": real(),
-        "realHighq": real_highq(),
-        "bizhi": wallpaper(),
-        "sketch": sketch()
+        "setu": color,
+        "setu18": color18,
+        "real": real,
+        "realHighq": real_highq,
+        "bizhi": wallpaper,
+        "sketch": sketch
     }
 
     try:
-        target_pic_path = await switch[image_type]
+        target_pic_path = await switch[image_type]()
     except ConfigurationNotFound:
         return MessageChain.create([Plain(f"{image_type}Path参数未配置!请检查配置文件！")])
     except ImagePathEmpty:
