@@ -34,4 +34,4 @@
 - [PornhubStyleLogoGenerator](modules/PornhubStyleLogoGenerator) 一个可以生成 pornhub style logo 的插件
 - [AbbreviatedPrediction](modules/AbbreviatedPrediction.py) 一个可以获取字母缩写内容的插件
 - [LeetcodeInfoCrawer](modules/LeetcodeInfoCrawer) 一个可以获取leetcode信息的插件
-- [ImageSender](modules/ImageSender) 一个图片~~(setu)~~发送插件
+- [ImageSender](modules/ImageSender) 一个图片 ~~(setu)~~发送插件

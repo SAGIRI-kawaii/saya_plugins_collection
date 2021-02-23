@@ -105,7 +105,7 @@ async def write_chat_record(seg, group_id: int, member_id: int, content: str) ->
     content = content.replace("\"", " ")
     seg_result = seg.cut(content)
     seg_result = await filter_label(seg_result)
-    print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+    # print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     sql = f"""INSERT INTO chatRecord 
                 (`time`, groupId, memberId, content, seg)
                 VALUES
