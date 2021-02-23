@@ -150,7 +150,7 @@ async def check_group_data_init(group_list: list) -> None:
     data = await execute_sql(sql)
     group_id = list(chain.from_iterable(data))
     for i in group_list:
-        print(i.id, ':', i.name)
+        # print(i.id, ':', i.name)
         if i.id not in group_id:
             sql = f"INSERT INTO setting (groupId) VALUES ({i.id})"
             await execute_sql(sql)
