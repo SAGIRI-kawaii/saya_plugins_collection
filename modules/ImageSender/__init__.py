@@ -198,18 +198,16 @@ async def admin_manage(app: GraiaMiraiApplication, message: MessageChain, group:
     inline_dispatchers=[Kanata([RegexMatch("(添加|删除).*关键词.*")])]))
 async def keyword_manage(app: GraiaMiraiApplication, message: MessageChain, group: Group, member: Member):
     legal_config = ("setu", "real", "realHighq", "bizhi", "sketch")
+    message_serialization = message.asSerializationString()
+    message_serialization = message_serialization.replace(
+        "[mirai:source:" + re.findall(r'\[mirai:source:(.*?)]', message_serialization, re.S)[0] + "]",
+        ""
+    )
+    function, keyword = message_serialization[2:].split("关键词")
+    function = function.strip()
+    keyword = keyword.strip()
+    if not function: return None
     if member.id in await get_admin(group.id):
-        message_serialization = message.asSerializationString()
-        message_serialization = message_serialization.replace(
-            "[mirai:source:" + re.findall(r'\[mirai:source:(.*?)]', message_serialization, re.S)[0] + "]",
-            ""
-        )
-        print(message_serialization[2:])
-        # function, keyword = re.findall(r"(.*?)关键词(.*?)", message_serialization[2:], re.S)[0]
-        function, keyword = message_serialization[2:].split("关键词")
-        function = function.strip()
-        keyword = keyword.strip()
-        print(re.findall(r"(.*?)关键词(.*?)", message_serialization[2:], re.S))
         if function in legal_config:
             if re.match(r"\[mirai:image:{.*}\..*]", keyword):
                 keyword = re.findall(r"\[mirai:image:{(.*?)}\..*]", keyword, re.S)[0]

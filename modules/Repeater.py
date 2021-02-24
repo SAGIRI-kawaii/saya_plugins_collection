@@ -30,7 +30,7 @@ async def repeater(app: GraiaMiraiApplication, message: MessageChain, group: Gro
         ""
     )
 
-    lock.acquire()
+    # lock.acquire()
     if group_id in group_repeat.keys():
         group_repeat[group.id]["lastMsg"] = group_repeat[group.id]["thisMsg"]
         group_repeat[group.id]["thisMsg"] = message_serialization
@@ -45,4 +45,4 @@ async def repeater(app: GraiaMiraiApplication, message: MessageChain, group: Gro
                     pass
     else:
         group_repeat[group_id] = {"lastMsg": "", "thisMsg": "", "stopMsg": ""}
-    lock.release()
+    # lock.release()
