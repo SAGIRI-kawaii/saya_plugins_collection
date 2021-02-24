@@ -8,6 +8,7 @@ from graia.application.event.messages import GroupMessage, Group, Member
 from graia.application.message.parser.kanata import Kanata
 from graia.application.message.parser.signature import RegexMatch
 from graia.application.event.lifecycle import ApplicationLaunched
+from graia.application.event.mirai import BotJoinGroupEvent
 from graia.broadcast.interrupt import InterruptControl
 from graia.broadcast.interrupt.waiter import Waiter
 
@@ -254,3 +255,9 @@ async def keyword_manage(app: GraiaMiraiApplication, message: MessageChain, grou
             await app.sendGroupMessage(group, MessageChain.create([Plain(text="哼，你又不是管理员，我才不听你的！")]))
         except AccountMuted:
             pass
+
+
+@channel.use(ListenerSchema(listening_events=[BotJoinGroupEvent]))
+async def join_group_init(event: BotJoinGroupEvent):
+    group_id = event.group.id
+    await add_group(group_id)

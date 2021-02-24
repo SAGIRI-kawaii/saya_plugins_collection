@@ -217,3 +217,14 @@ async def admin_management(group_id: int, member_id: int, operation: str) -> Mes
             return MessageChain.create([Plain(text=f"{member_id}本来就不是群{group_id}的管理员哦！")])
     else:
         return MessageChain.create([Plain(text=f"operation error: {operation}")])
+
+
+async def add_group(group_id: int):
+    sql = f"SELECT * FROM setting WHERE groupId={group_id}"
+    if await execute_sql(sql):
+        return None
+    else:
+        sql = f"INSERT INTO setting (groupId) VALUES ({group_id})"
+        await execute_sql(sql)
+        sql = f"INSERT INTO admin (groupId, adminId) VALUES ({group_id}, {configs['hostQQ']})"
+        await execute_sql(sql)
