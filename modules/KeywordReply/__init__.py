@@ -104,8 +104,19 @@ async def add_keyword(
 
         conn = Sqlite3Manager.Sqlite3Manager.get_instance().get_conn()
         cursor = conn.cursor()
+        sql = f"SELECT * FROM keywordReply WHERE keyword=? AND `type`=? AND `content`=?"
+        cursor.execute(sql, (keyword, content_type, content))
+        if cursor.fetchall():
+            try:
+                await app.sendGroupMessage(group, MessageChain.create([Plain(text="存在相同数据！进程退出")]))
+                cursor.close()
+                return None
+            except AccountMuted:
+                cursor.close()
+                return None
         sql = f"INSERT INTO keywordReply (`keyword`, `type`, `content`) VALUES (?,?,?)"
         cursor.execute(sql, (keyword, content_type, content))
+
         conn.commit()
         cursor.close()
         try:
