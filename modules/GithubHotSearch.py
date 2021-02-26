@@ -22,6 +22,10 @@ __usage__ = "在群内发送 github热搜 即可"
 saya = Saya.current()
 channel = Channel.current()
 
+channel.name(__name__)
+channel.description(f"{__description__}\n使用方法：{__usage__}")
+channel.author(__author__)
+
 
 @channel.use(ListenerSchema(listening_events=[GroupMessage], inline_dispatchers=[Kanata([FullMatch('github热搜')])]))
 async def group_message_listener(app: GraiaMiraiApplication, group: Group):

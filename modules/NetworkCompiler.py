@@ -19,6 +19,10 @@ __usage__ = "在群内发送 super 语言:\\n代码 即可"
 saya = Saya.current()
 channel = Channel.current()
 
+channel.name(__name__)
+channel.description(f"{__description__}\n使用方法：{__usage__}")
+channel.author(__author__)
+
 
 @channel.use(ListenerSchema(
     listening_events=[GroupMessage],

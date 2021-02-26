@@ -21,6 +21,10 @@ __usage__ = "发送 `ph text1 text2` 即可"
 saya = Saya.current()
 channel = Channel.current()
 
+channel.name(__name__)
+channel.description(f"{__description__}\n使用方法：{__usage__}")
+channel.author(__author__)
+
 
 @channel.use(ListenerSchema(
     listening_events=[GroupMessage],

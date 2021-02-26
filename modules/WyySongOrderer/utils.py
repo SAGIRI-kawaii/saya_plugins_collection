@@ -3,6 +3,9 @@ import asyncio
 import traceback
 import aiohttp
 import json
+from pydub import AudioSegment
+import jpype
+from jpype import *
 
 from graia.application import GraiaMiraiApplication
 from graia.application.message.chain import MessageChain
@@ -51,6 +54,30 @@ async def get_song_ordered(keyword: str, app: GraiaMiraiApplication) -> MessageC
     return MessageChain.create([upload_resp])
 
 
+def silk4j_java():
+    jarPath = "./silk4j-1.0.jar"
+    jvmPath = jpype.getDefaultJVMPath()
+    jpype.startJVM(jvmPath, "-ea", f"-Djava.class.path={jarPath}")
+    audio_utils_class = JClass("io.github.mzdluo123.silk4j.AudioUtils")
+    util = audio_utils_class()
+    util.init()
+    file = java.io.File("./cache.mp3")
+    silk_file = util.mp3ToSilk(file)
+    output_file = java.io.File("./cache.slk")
+    file_input_stream = java.io.FileInputStream(silk_file)
+    # buffer = jpype.JArray(tp=jpype.JByte)
+    # while bytes_read := file_input_stream.read(buffer, 0, 1024):
+    #     print(bytes_read)
+    #     output_file.write(buffer, 0, bytes_read)
+
+    util.streamToTempFile(file_input_stream, output_file)
+
+    output_file.close()
+    file_input_stream.close()
+
+    jpype.shutdownJVM()
+
+
 async def silk(data, mtype='b', options=''):
     try:
         cache_files = ['./modules/WyySongOrderer/cache.wav']
@@ -79,3 +106,5 @@ async def silk(data, mtype='b', options=''):
         return b
     except Exception:
         traceback.print_exc()
+
+silk4j_java()

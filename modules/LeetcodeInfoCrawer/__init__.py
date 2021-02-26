@@ -23,6 +23,10 @@ __usage__ = "查询用户信息：发送 leetcode userSlug (userSlug为个人唯
 saya = Saya.current()
 channel = Channel.current()
 
+channel.name(__name__)
+channel.description(f"{__description__}\n使用方法：{__usage__}")
+channel.author(__author__)
+
 
 @channel.use(ListenerSchema(
     listening_events=[GroupMessage],

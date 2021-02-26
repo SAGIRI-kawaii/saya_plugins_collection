@@ -20,6 +20,10 @@ channel = Channel.current()
 group_repeat = {}
 lock = threading.Lock()
 
+channel.name(__name__)
+channel.description(f"{__description__}\n使用方法：{__usage__}")
+channel.author(__author__)
+
 
 @channel.use(ListenerSchema(listening_events=[GroupMessage]))
 async def repeater(app: GraiaMiraiApplication, message: MessageChain, group: Group):

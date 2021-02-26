@@ -26,6 +26,10 @@ __usage__ = "在群内发送 `steam 游戏名` 即可"
 saya = Saya.current()
 channel = Channel.current()
 
+channel.name(__name__)
+channel.description(f"{__description__}\n使用方法：{__usage__}")
+channel.author(__author__)
+
 
 @channel.use(ListenerSchema(
     listening_events=[GroupMessage],
@@ -78,7 +82,7 @@ async def get_steam_game_search(keyword: str, msg_type: str = "text") -> Message
         msg_type: Type of MessageChain
 
     Examples:
-        get_steam_game_search("Monster Hunter")
+        await get_steam_game_search("Monster Hunter")
 
     Return:
         MessageChain
@@ -91,7 +95,8 @@ async def get_steam_game_search(keyword: str, msg_type: str = "text") -> Message
     url = "https://steamstats.cn/api/steam/search?q=%s&page=1&format=json&lang=zh-hans" % keyword
     headers = {
         "referer": "https://steamstats.cn/",
-        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36"
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) "
+                      "Chrome/85.0.4183.121 Safari/537.36 "
     }
 
     async with aiohttp.ClientSession() as session:

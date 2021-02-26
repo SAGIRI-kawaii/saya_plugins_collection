@@ -28,6 +28,10 @@ channel = Channel.current()
 bcc = saya.broadcast
 inc = InterruptControl(bcc)
 
+channel.name(__name__)
+channel.description(f"{__description__}\n使用方法：{__usage__}")
+channel.author(__author__)
+
 
 @channel.use(ListenerSchema(listening_events=[ApplicationLaunched]))
 async def data_init(app: GraiaMiraiApplication):

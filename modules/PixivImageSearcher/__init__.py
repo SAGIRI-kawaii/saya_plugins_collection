@@ -30,6 +30,10 @@ channel = Channel.current()
 bcc = saya.broadcast
 inc = InterruptControl(bcc)
 
+channel.name(__name__)
+channel.description(f"{__description__}\n使用方法：{__usage__}")
+channel.author(__author__)
+
 # 填入你的saucenao_cookie
 saucenao_cookie = ""
 
@@ -80,8 +84,8 @@ async def pixiv_image_searcher(app: GraiaMiraiApplication, member: Member, group
 
 
 async def search_image(img: Image) -> MessageChain:
-    path = "./modules/PixivImageSearcher/tempSavedImage.jpg"
-    thumbnail_path = "./modules/PixivImageSearcher/tempThumbnail.jpg"
+    path = "./modules/PixivImageSearcher/tempSavedImage.png"
+    thumbnail_path = "./modules/PixivImageSearcher/tempThumbnail.png"
     async with aiohttp.ClientSession() as session:
         async with session.get(url=img.url) as resp:
             img_content = await resp.read()

@@ -27,6 +27,10 @@ __usage__ = "发送 `番剧 番剧名` 即可"
 saya = Saya.current()
 channel = Channel.current()
 
+channel.name(__name__)
+channel.description(f"{__description__}\n使用方法：{__usage__}")
+channel.author(__author__)
+
 
 @channel.use(ListenerSchema(
     listening_events=[GroupMessage],

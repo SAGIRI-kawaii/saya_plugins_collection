@@ -22,6 +22,10 @@ __usage__ = "在群内发送 [1-7]日内新番 即可"
 saya = Saya.current()
 channel = Channel.current()
 
+channel.name(__name__)
+channel.description(f"{__description__}\n使用方法：{__usage__}")
+channel.author(__author__)
+
 
 @channel.use(ListenerSchema(listening_events=[GroupMessage], inline_dispatchers=[Kanata([RegexMatch('[1-7]日内新番')])]))
 async def bilibili_bangumi_schedule(
