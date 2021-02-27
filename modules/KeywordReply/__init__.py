@@ -51,7 +51,7 @@ async def keyword_reply(
             content_type = result[i][1]
             content = result[i][2]
             replies.append([content_type, content])
-        print(replies)
+        # print(replies)
         final_reply = random.choice(replies)
 
         content_type = final_reply[0]
@@ -93,6 +93,12 @@ async def add_keyword(
             return None
         keyword = keyword.strip()
         content = content.strip()
+        if keyword == "" or content == "":
+            try:
+                await app.sendGroupMessage(group, MessageChain.create([Plain(text="怎么是空的啊！爬！")]))
+            except AccountMuted:
+                pass
+            return None
         content_type = "text"
         keyword_type = "text"
         if re.match(r"\[mirai:image:{.*}\..*]", keyword):
