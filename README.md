@@ -39,3 +39,4 @@
 - [WyySongOrderer](modules/WyySongOrderer) 一个(全损音质x)网易云源的点歌插件
 - [5000Zhao](modules/5000Zhao) 一个 5000兆円欲しい! style的图片生成器
 - [KeywordDetection](modules/KeywordDetection) 一个敏感词过滤插件（自带数据库）
+- [PhantomTank](modules/PhantomTank) 一个幻影坦克生成器
