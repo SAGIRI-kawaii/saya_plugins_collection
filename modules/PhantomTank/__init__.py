@@ -14,13 +14,13 @@ from graia.application.event.messages import MessageChain
 from graia.application.message.elements.internal import Plain
 from graia.application.message.elements.internal import Image
 
-from .utils import make_tank
+from .utils import make_tank, colorful_tank
 
 # 插件信息
 __name__ = "PhantomTank"
 __description__ = "一个幻影坦克生成器"
 __author__ = "SAGIRI-kawaii"
-__usage__ = "群内发送 `幻影[图片][图片]` 即可"
+__usage__ = "群内发送 `(幻影|彩色幻影)[图片][图片]` 即可"
 
 saya = Saya.current()
 channel = Channel.current()
@@ -35,7 +35,8 @@ signal: int = 0
 @channel.use(ListenerSchema(listening_events=[GroupMessage]))
 async def phantom_tank(app: GraiaMiraiApplication, message: MessageChain, group: Group):
 
-    if "".join([plain.text for plain in message.get(Plain)]).strip() == "幻影":
+    message_text = "".join([plain.text for plain in message.get(Plain)]).strip()
+    if message_text in ["幻影", "彩色幻影"]:
         if len(message[Image]) != 2:
             try:
                 await app.sendGroupMessage(group, MessageChain.create([Plain(text="非预期图片数量！请按 `显示图 隐藏图` 顺序发送，共两张")]))
@@ -72,7 +73,8 @@ async def phantom_tank(app: GraiaMiraiApplication, message: MessageChain, group:
             await app.sendGroupMessage(
                 group,
                 MessageChain.create([
-                    Image.fromUnsafeBytes(await make_tank(display_img, hide_img))
+                    Image.fromUnsafeBytes(await make_tank(display_img, hide_img) if message_text == "幻影" else await colorful_tank(display_img, hide_img))
+                    # Image.fromUnsafeBytes(await colorful_tank(display_img, hide_img))
                 ])
             )
         except AccountMuted:
