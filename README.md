@@ -40,3 +40,7 @@
 - [5000Zhao](modules/5000Zhao) 一个 5000兆円欲しい! style的图片生成器
 - [KeywordDetection](modules/KeywordDetection) 一个敏感词过滤插件（自带数据库）
 - [PhantomTank](modules/PhantomTank) 一个幻影坦克生成器
+
+## 其他
+
+目前正在进行 SAGIRI-BOT 的重构工作，暂时无法更新插件，若您有好的插件或有好的想法，欢迎 Pr 或提 ISSUE
