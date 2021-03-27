@@ -25,6 +25,11 @@ class Sqlite3Manager:
                       `content` LONGBLOB NOT NULL
                     )"""
             )
+            cur.execute(
+                """CREATE TABLE IF NOT EXISTS `filterKeywords` (
+                      `keyword` TEXT PRIMARY KEY
+                    )"""
+            )
             self.__conn.commit()
 
             Sqlite3Manager.__first_init = True
