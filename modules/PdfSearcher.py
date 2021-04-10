@@ -45,8 +45,8 @@ async def pdf_searcher(
 
 
 async def search_pdf(keyword: str) -> MessageChain:
-    url = f"https://zh.1lib.us/s/?q={keyword}"
-    base_url = "https://zh.1lib.us"
+    url = f"https://2lib.org/s/?q={keyword}"
+    base_url = "https://2lib.org"
     async with aiohttp.ClientSession() as session:
         async with session.get(url=url) as resp:
             html = await resp.read()
