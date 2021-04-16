@@ -40,6 +40,7 @@
 - [5000Zhao](modules/5000Zhao) 一个 5000兆円欲しい! style的图片生成器
 - [KeywordDetection](modules/KeywordDetection) 一个敏感词过滤插件（自带数据库）
 - [PhantomTank](modules/PhantomTank) 一个幻影坦克生成器
+- [BiliResolve](modules/BiliResolve) B站视频分享解析
 
 ## 其他
 
