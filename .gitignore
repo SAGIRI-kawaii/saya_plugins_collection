@@ -9,4 +9,8 @@ out
 gen
 
 /temp/
-/__pycache__/
+/.vscode/
+__pycache__/
+temp/
+test.*
+config.*
