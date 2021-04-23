@@ -14,3 +14,5 @@ __pycache__/
 temp/
 test.*
 config.*
+modules/SteamGameSearcher/game_cover_cache
+modules/PixivImageSearcher/tempSavedImage.png
