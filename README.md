@@ -41,6 +41,7 @@
 - [KeywordDetection](modules/KeywordDetection) 一个敏感词过滤插件（自带数据库）
 - [PhantomTank](modules/PhantomTank) 一个幻影坦克生成器
 - [BiliResolve](modules/BiliResolve) B站视频分享解析
+- [ChatBot](modules/ChatBot) 聊天机器人
 
 ## 其他
 
