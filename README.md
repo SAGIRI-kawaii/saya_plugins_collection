@@ -4,6 +4,10 @@
 
 如果您有这类项目，欢迎提交 Pull request 将您的项目添加到这里(注意，本仓库仅接受开源项目的仓库地址)
 
+```diff
+注意：本仓库仅提供插件存储，对插件内容并没有具体审查，请自行甄别
+```
+
 ## 如何使用
 
 本仓库中所有自带插件都在modules中
@@ -37,7 +41,7 @@
 - [ImageSender](modules/ImageSender) 一个图片~~(setu)~~发送插件
 - [HeadSplicer](modules/HeadSplicer) 一个接头霸王插件
 - [WyySongOrderer](modules/WyySongOrderer) 一个(全损音质x)网易云源的点歌插件
-- [5000Zhao](modules/5000Zhao) 一个 5000兆円欲しい! style的图片生成器
+- [5000Zhao](modules/5000zhao) 一个 5000兆円欲しい! style的图片生成器
 - [KeywordDetection](modules/KeywordDetection) 一个敏感词过滤插件（自带数据库）
 - [PhantomTank](modules/PhantomTank) 一个幻影坦克生成器
 - [BiliResolve](modules/BiliResolve) B站视频分享解析
