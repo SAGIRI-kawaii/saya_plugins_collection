@@ -46,6 +46,7 @@
 - [PhantomTank](modules/PhantomTank) 一个幻影坦克生成器
 - [BiliResolve](modules/BiliResolve) B站视频分享解析
 - [ChatBot](modules/ChatBot) 聊天机器人
+- [GarbageClassification](modules/GarbageClassification) 获取垃圾分类信息
 
 ## 其他
 
