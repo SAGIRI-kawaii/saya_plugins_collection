@@ -1,0 +1,4 @@
+numpy
+moviepy
+aiohttp
+Pillow
