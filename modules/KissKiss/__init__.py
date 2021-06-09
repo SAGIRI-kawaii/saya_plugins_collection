@@ -73,7 +73,7 @@ async def kiss(operator_id, target_id) -> None:
                 operator_img = await resp.read()
         operator = Image.open(BytesIO(operator_img))
     else:
-        operator = Image.open("./modules/KissKiss/res/avatar.png")
+        operator = Image.open("./modules/KissKiss/avatar.png")
 
     if str(target_id) != "":  # admin自定义
         async with aiohttp.ClientSession() as session:
@@ -81,7 +81,7 @@ async def kiss(operator_id, target_id) -> None:
                 target_img = await resp.read()
         target = Image.open(BytesIO(target_img))
     else:
-        target = Image.open("./modules/KissKiss/res/avatar.png")
+        target = Image.open("./modules/KissKiss/avatar.png")
 
     operator = operator.resize((40, 40), Image.ANTIALIAS)
     size = operator.size
