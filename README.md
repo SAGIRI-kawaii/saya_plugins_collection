@@ -46,9 +46,10 @@
 [KeywordDetection](modules/KeywordDetection)|[SAGIRI-kawaii](https://github.com/SAGIRI-kawaii)|一个敏感词过滤插件（自带数据库）
 [PhantomTank](modules/PhantomTank)|[SAGIRI-kawaii](https://github.com/SAGIRI-kawaii)|一个幻影坦克生成器
 [BiliResolve](modules/BiliResolve)|[EnkanSakura](https://github.com/EnkanSakura)|B站视频分享解析
-[ChatBot](modules/ChatBot)|[Roc136](https://github.com/Roc136)|聊天机器人
+[ChatBot](modules/ChatBot)|[Roc136](https://github.com/Roc136)|聊天机器人|需要自行配置所用的机器人及所需的key
 [GarbageClassification](modules/GarbageClassification)|[Roc136](https://github.com/Roc136)|获取垃圾分类信息
 [KissKiss](modules/KissKiss)|[SuperWaterGod](https://github.com/SuperWaterGod)|生成头像互亲的gif
+[Weather](modules/Weather)|[Roc136](https://github.com/Roc136)|天气预报|需要自行配置`KEY`
 
 ## 其他
 
