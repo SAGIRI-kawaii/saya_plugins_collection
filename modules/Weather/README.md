@@ -1,6 +1,6 @@
 # 利用和风天气api制作的一个天气预报机器人
 
-使用前需要自行修改配置，复制或重命名 `configdemo.py` 为 `config.py`，添加 `KEY` ,注册地址： https://dev.qweather.com/
+使用前需要自行修改配置，复制或重命名 `config_demo.py` 为 `config.py`，添加 `KEY` ,注册地址： https://dev.qweather.com/
 
 使用方法：
 
