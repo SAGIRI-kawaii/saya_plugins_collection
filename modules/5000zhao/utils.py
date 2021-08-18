@@ -116,8 +116,8 @@ def genImage(word_a="5000兆円", word_b="欲しい!", default_width=1500, heigh
     # width = max_width
     alpha = (0, 0, 0, 0)
     leftmargin = 50
-    font_upper = ImageFont.truetype("./modules/5000zhao/fonts/STKAITI.ttf", _round(height/3))
-    font_downer = ImageFont.truetype("./modules/5000zhao/fonts/STKAITI.ttf", _round(height/3))
+    font_upper = ImageFont.truetype("./modules/5000zhao/fonts/STKAITI.TTF", _round(height/3))
+    font_downer = ImageFont.truetype("./modules/5000zhao/fonts/STKAITI.TTF", _round(height/3))
 
     # Prepare Width
     upper_width = max([default_width,
