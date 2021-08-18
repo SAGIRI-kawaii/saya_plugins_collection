@@ -12,10 +12,10 @@ from graia.application.message.parser.signature import RegexMatch
 from .utils import genImage
 
 # 插件信息
-__name__ = "PornhubStyleLogoGenerator"
-__description__ = "一个可以生成 pornhub style logo 的插件"
+__name__ = "5000ZhaoStyleImageGenerator"
+__description__ = "一个 5000兆円欲しい! style的图片生成器"
 __author__ = "SAGIRI-kawaii"
-__usage__ = "发送 `ph text1 text2` 即可"
+__usage__ = "发送 `5000兆 text1 text2` 即可"
 
 saya = Saya.current()
 channel = Channel.current()
