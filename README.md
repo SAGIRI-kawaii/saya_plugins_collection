@@ -45,7 +45,7 @@
 [5000Zhao](modules/5000zhao)|[SAGIRI-kawaii](https://github.com/SAGIRI-kawaii)|一个 5000兆円欲しい! style的图片生成器|
 [KeywordDetection](modules/KeywordDetection)|[SAGIRI-kawaii](https://github.com/SAGIRI-kawaii)|一个敏感词过滤插件（自带数据库）|
 [PhantomTank](modules/PhantomTank)|[SAGIRI-kawaii](https://github.com/SAGIRI-kawaii)|一个幻影坦克生成器|
-[NiBuNengXXMa](modules/NiBuNengXXMa)| [eeehhheee](https://github.com/SAGIRI-kawaii) |生成“你能不能xxx  xx人”的表情图|安装Pillow
+[NiBuNengXXMa](modules/NiBuNengXXMa)| [eeehhheee](https://github.com/eeehhheee) |生成如示例样式的图片|安装Pillow
 [BiliResolve](modules/BiliResolve)|[EnkanSakura](https://github.com/EnkanSakura)|B站视频分享解析|
 [ChatBot](modules/ChatBot)|[Roc136](https://github.com/Roc136)|聊天机器人|需要自行配置所用的机器人及所需的key
 [GarbageClassification](modules/GarbageClassification)|[Roc136](https://github.com/Roc136)|获取垃圾分类信息|
@@ -55,3 +55,4 @@
 ## 其他
 
 目前正在进行 SAGIRI-BOT 的重构工作，暂时无法更新插件，若您有好的插件或有好的想法，欢迎 Pr 或提 ISSUE
+
