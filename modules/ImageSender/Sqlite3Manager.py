@@ -1,5 +1,5 @@
 import sqlite3
-import os
+from pathlib import Path
 
 
 keywords_init_sql = [
@@ -14,7 +14,6 @@ keywords_init_sql = [
 class Sqlite3Manager:
     __instance = None
     __first_init: bool = False
-    path: str = None
     __conn = None
 
     def __new__(cls):
@@ -24,8 +23,7 @@ class Sqlite3Manager:
 
     def __init__(self):
         if not self.__first_init:
-            self.path = os.getcwd()
-            self.__conn = sqlite3.connect(self.path + './modules/ImageSender/imageSenderInfo.db')
+            self.__conn = sqlite3.connect(Path(__file__).parent / "imageSenderInfo.db")
             cur = self.__conn.cursor()
             cur.execute(
                 """CREATE TABLE IF NOT EXISTS `setting` (
