@@ -1,11 +1,10 @@
 import sqlite3
-import os
+from pathlib import Path
 
 
 class Sqlite3Manager:
     __instance = None
     __first_init: bool = False
-    path: str = None
     __conn = None
 
     def __new__(cls):
@@ -15,8 +14,7 @@ class Sqlite3Manager:
 
     def __init__(self):
         if not self.__first_init:
-            self.path = os.getcwd()
-            self.__conn = sqlite3.connect(self.path + './modules/KeywordReply/keywordReply.db')
+            self.__conn =  sqlite3.connect(Path(__file__).parent / "keywordReply.db")
             cur = self.__conn.cursor()
             cur.execute(
                 """CREATE TABLE IF NOT EXISTS `keywordReply` (
