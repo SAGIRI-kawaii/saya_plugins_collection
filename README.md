@@ -51,6 +51,7 @@
 [GarbageClassification](modules/GarbageClassification)|[Roc136](https://github.com/Roc136)|获取垃圾分类信息|
 [KissKiss](modules/KissKiss)|[SuperWaterGod](https://github.com/SuperWaterGod)|生成头像互亲的gif|
 [Weather](modules/Weather)|[Roc136](https://github.com/Roc136)|天气预报|需要自行配置`KEY`
+[Today](modules/Today)|[Hiy0ri](https://github.com/Hiy0ri)|命运2日报|
 
 ## 其他
 
